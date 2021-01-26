@@ -7,7 +7,7 @@
           <router-link to="/" slot="left">
             <mt-button class="logo_icon"></mt-button>
           </router-link>
-          <mt-button icon="search" slot="right" @touchstart.native="goSearch"></mt-button>
+          <mt-button icon="search" slot="right" @touchstart.native="gotoSearch"></mt-button>
         </mt-header>
       <!-- 具名视图 -->
       <router-view name="nav"></router-view>
@@ -29,7 +29,7 @@ Vue.component(Button.name, Button );
 
 export default {
   methods:{
-    goSearch(){
+    gotoSearch(){
       // 去搜索组件区域
       this.$router.push({path:"/search"})
     }
@@ -38,17 +38,27 @@ export default {
 </script>
 
 <style lang="less">
-  .mint-header{
-    .mint-header-button{
-      .logo_icon{
-        width: 6.375rem;
-        height: 1.5rem;
-        background: url(./assets/img/logo.png) no-repeat;
-        background-size: 100% 100%;
-      }
-      .mintui-search{
-        font-size: 1.125rem;
+  header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    .mint-header{
+      .mint-header-button{
+        .logo_icon{
+          width: 6.375rem;
+          height: 1.5rem;
+          background: url(./assets/img/logo.png) no-repeat;
+          background-size: 100% 100%;
+        }
+        .mintui-search{
+          font-size: 1.125rem;
+        }
       }
     }
+  }
+  div.container{
+    margin-top: 4.525rem;
   }
 </style>

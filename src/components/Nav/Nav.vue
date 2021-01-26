@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
       <mt-navbar v-model="selected">
-        <mt-tab-item :id="i"
+        <mt-tab-item :id="item.path"
         v-for="(item,i) in NavRoutes"
         :key="i"
         @touchstart.native="gotoCom(item.name)"
@@ -17,11 +17,15 @@ Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
 
 import NavRoutes from "@/router/nav.js"
+// import { mapState  } from "vuex";
 
 export default {
+  // computed:{
+  //   ...mapState(["selected"])
+  // },
   data(){
     return{
-      selected:0,
+      selected:this.$route.path,
       NavRoutes
     }
   },
